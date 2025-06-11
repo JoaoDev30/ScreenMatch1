@@ -1,15 +1,62 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.alura.screenmatch.calculos.FiltroDeRecomendacao;
+import br.com.alura.screenmatch.modelos.Episodio;
+import br.com.alura.screenmatch.modelos.Filme;
+import br.com.alura.screenmatch.modelos.Serie;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Filme meuFilme = new Filme();
+        meuFilme.setNome("O poderoso chefão");
+        meuFilme.setAnoDeLancamento(1970);
+        meuFilme.setDuracaoEmMinutos(180);
+        System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        meuFilme.exibeFichaTecnica();
+        meuFilme.avalia(8);
+        meuFilme.avalia(5);
+        meuFilme.avalia(10);
+        System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
+        System.out.println(meuFilme.pegaMedia());
+        //meuFilme.somaDasAvaliacoes = 10;
+        //meuFilme.totalDeAvaliacoes = 1;
+        //System.out.println(meuFilme.pegaMedia());
+
+        Serie lost = new Serie();
+        lost.setNome("Lost");
+        lost.setAnoDeLancamento(2000);
+        lost.exibeFichaTecnica();
+        lost.setTemporadas(10);
+        lost.setEpisodiosPorTemporada(10);
+        lost.setMinutosPorEpisodio(50);
+        System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
+
+        Filme outroFilme = new Filme();
+        outroFilme.setNome("Avatar");
+        outroFilme.setAnoDeLancamento(2023);
+        outroFilme.setDuracaoEmMinutos(200);
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        calculadora.inclui(outroFilme);
+        calculadora.inclui(lost);
+        System.out.println(calculadora.getTempoTotal());
+
+        FiltroDeRecomendacao filtro = new FiltroDeRecomendacao();
+        filtro.filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setNome("lost");
+        episodio.setTotalVizualizacoes(300);
+        filtro.filtra(episodio);
+
+        //Filme filmeDoJoao = new Filme();
+        var filmeDoJoao = new Filme(); // var = palavra reservada para variável e é usado para n ficar repetindo igual no código comentado acima.
+        filmeDoJoao.setNome("Homem - Aranha 2");
+        filmeDoJoao.setDuracaoEmMinutos(200);
+        filmeDoJoao.setDiretor("Sam Raimi");
+        filmeDoJoao.setAnoDeLancamento(2004);
+        filmeDoJoao.avalia(10);
     }
 }
