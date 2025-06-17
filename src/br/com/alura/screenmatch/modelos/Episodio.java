@@ -2,11 +2,12 @@ package br.com.alura.screenmatch.modelos;
 
 import br.com.alura.screenmatch.calculos.Classificavel;
 
-public class Episodio extends Titulo implements Classificavel {
+public class Episodio implements Classificavel {
     private int numero;
     private String nome;
     private Serie serie;
     private int   totalVizualizacoes;
+
 
     public int getTotalVizualizacoes() {
         return totalVizualizacoes;
@@ -22,16 +23,6 @@ public class Episodio extends Titulo implements Classificavel {
 
     public void setNumero(int numero) {
         this.numero = numero;
-    }
-
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public Serie getSerie() {

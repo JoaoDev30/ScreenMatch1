@@ -4,10 +4,12 @@ import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O poderoso chefão");
+        Filme meuFilme = new Filme("O poderoso chefão");
+        //meuFilme.setNome("O poderoso chefão");
         meuFilme.setAnoDeLancamento(1970);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
@@ -22,17 +24,17 @@ public class Main {
         //meuFilme.totalDeAvaliacoes = 1;
         //System.out.println(meuFilme.pegaMedia());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoDeLancamento(2000);
+        Serie lost = new Serie("Lost",2000);
+        //lost.setNome("Lost");
+        //lost.setAnoDeLancamento(2000);
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(10);
         lost.setMinutosPorEpisodio(50);
         System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avatar");
+        Filme outroFilme = new Filme("Avatar");
+        //outroFilme.setNome("Avatar");
         outroFilme.setAnoDeLancamento(2023);
         outroFilme.setDuracaoEmMinutos(200);
 
@@ -47,16 +49,28 @@ public class Main {
 
         Episodio episodio = new Episodio();
         episodio.setNumero(1);
-        episodio.setNome("lost");
         episodio.setTotalVizualizacoes(300);
         filtro.filtra(episodio);
 
         //Filme filmeDoJoao = new Filme();
-        var filmeDoJoao = new Filme(); // var = palavra reservada para variável e é usado para n ficar repetindo igual no código comentado acima.
-        filmeDoJoao.setNome("Homem - Aranha 2");
+        var filmeDoJoao = new Filme("Homem - Aranha 2"); // var = palavra reservada para variável e é usado para n ficar repetindo igual no código comentado acima.
+
+        //filmeDoJoao.setNome("Homem - Aranha 2");
         filmeDoJoao.setDuracaoEmMinutos(200);
         filmeDoJoao.setDiretor("Sam Raimi");
         filmeDoJoao.setAnoDeLancamento(2004);
         filmeDoJoao.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+        listaDeFilmes.add(filmeDoJoao);
+        System.out.println("Tamanho da lista de Filmes: "+listaDeFilmes.size());
+        System.out.println("Primeiro filme da lista: "+listaDeFilmes.getFirst().getNome()); // 0  ou getFirst para pegar o primeiro filme da lista. Lmebrando que começa do 0
+        System.out.println(listaDeFilmes);
+        System.out.println("toString do filme: "+listaDeFilmes.get(0).toString());
+
+
+
     }
 }
