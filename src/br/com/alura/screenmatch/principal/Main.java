@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.FiltroDeRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme("O poderoso chefão");
+        Filme meuFilme = new Filme("O poderoso chefão",1999);
         //meuFilme.setNome("O poderoso chefão");
         meuFilme.setAnoDeLancamento(1970);
         meuFilme.setDuracaoEmMinutos(180);
@@ -33,7 +35,7 @@ public class Main {
         lost.setMinutosPorEpisodio(50);
         System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme("Avatar");
+        Filme outroFilme = new Filme("Avatar",2006);
         //outroFilme.setNome("Avatar");
         outroFilme.setAnoDeLancamento(2023);
         outroFilme.setDuracaoEmMinutos(200);
@@ -53,7 +55,7 @@ public class Main {
         filtro.filtra(episodio);
 
         //Filme filmeDoJoao = new Filme();
-        var filmeDoJoao = new Filme("Homem - Aranha 2"); // var = palavra reservada para variável e é usado para n ficar repetindo igual no código comentado acima.
+        var filmeDoJoao = new Filme("Homem - Aranha 2",2001); // var = palavra reservada para variável e é usado para n ficar repetindo igual no código comentado acima.
 
         //filmeDoJoao.setNome("Homem - Aranha 2");
         filmeDoJoao.setDuracaoEmMinutos(200);
